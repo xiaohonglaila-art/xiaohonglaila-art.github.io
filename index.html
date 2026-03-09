@@ -62,17 +62,53 @@
             .main-container { grid-template-columns: 1fr; }
             nav { display: none; /* In a real site, this would be a hamburger menu */ }
         }
+        /* 移动端汉堡菜单按钮样式 (电脑端默认隐藏) */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
+        .menu-toggle .bar { height: 3px; width: 25px; background-color: var(--text-heading); margin: 4px 0; transition: 0.3s; border-radius: 2px; }
+
+        /* 移动端适配 (当屏幕宽度小于 768px 时自动触发) */
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; } /* 手机上显示汉堡按钮 */
+            
+            nav#nav-links {
+                display: none; /* 手机上默认隐藏导航栏 */
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* 紧贴 Header 底部 */
+                left: 0;
+                width: 100%;
+                background-color: var(--card-bg);
+                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+                padding: 1rem 0;
+                text-align: center;
+            }
+            
+            /* 点击后触发显示下拉菜单 */
+            nav#nav-links.active { display: flex; } 
+            
+            /* 手机端菜单项排版优化 */
+            nav#nav-links a { margin: 1rem 0; margin-left: 0; display: block; font-size: 1.1rem; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo">Gear<span>Insights</span></a>
-        <nav>
-            <a href="reviews.html">Reviews</a>
+        <a href="index.html" class="logo">Gear<span>Insights</span></a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav id="nav-links">
+            <a href="index.html">Home</a>
             <a href="guides.html">Guides</a>
+            <a href="reviews.html">Reviews</a>
             <a href="photography.html">Photography</a>
             <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
@@ -144,6 +180,16 @@
             <a href="contact.html">Contact Us</a>
         </div>
     </footer>
+<script>
+        // 监听移动端菜单点击事件
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
 
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // 点击时让汉堡按钮有一点动画效果（可选）
+            mobileMenu.classList.toggle('is-active');
+        });
+    </script>
 </body>
 </html>

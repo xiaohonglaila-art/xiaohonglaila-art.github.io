@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GearInsights | Pro Outdoor Reviews & Backcountry Guides by Xander Hayes</title>
 <meta name="description" content="Expert, field-tested reviews of hiking boots, technical backpacks, and photography gear. Join Xander Hayes for uncompromising backcountry guides and gear analysis.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
         /* Modern CSS Variables & Reset */
         :root {
@@ -18,7 +20,20 @@
             --card-bg: #ffffff;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.7; }
+        /* 正文使用阅读体验极佳的 Lato 字体 */
+        body { 
+            font-family: 'Lato', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            line-height: 1.8; 
+            font-size: 1.1rem; /* 稍微放大一点点正文，更有大站风范 */
+        }
+        
+        /* 所有的标题使用硬朗高级的 Montserrat 字体 */
+        h1, h2, h3, h4, .logo { 
+            font-family: 'Montserrat', sans-serif; 
+            letter-spacing: -0.5px; /* 让标题稍微紧凑一点，更具冲击力 */
+        }
 
         /* Header & Navigation */
         header { background-color: var(--card-bg); padding: 1.5rem 5%; box-shadow: 0 1px 3px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }

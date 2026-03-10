@@ -3,76 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category: Hiking Boots | The Explorer's Gear</title>
+    <title>Hiking Boots & Footwear Reviews | GearInsights</title>
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2778302064532686" crossorigin="anonymous"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
     <style>
-        /* 沿用全局高级样式 */
         :root { --bg-color: #f8fafc; --text-main: #334155; --text-heading: #0f172a; --accent-color: #0284c7; --card-bg: #ffffff; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.7; }
-        header { background-color: var(--card-bg); padding: 1.5rem 5%; box-shadow: 0 1px 3px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-heading); text-decoration: none; letter-spacing: -0.5px; }
-        .logo span { color: var(--accent-color); }
-        nav a { color: var(--text-main); text-decoration: none; margin-left: 2rem; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
-        nav a:hover { color: var(--accent-color); }
-
-        /* 分类页专属顶部横幅 */
-        .category-header { background: var(--text-heading); color: white; text-align: center; padding: 4rem 1rem; margin-bottom: 3rem; }
-        .category-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; font-weight: 800; }
-        .category-header p { font-size: 1.1rem; color: #cbd5e1; max-width: 600px; margin: 0 auto; }
-
-        /* 文章网格布局 (Grid) */
-        .category-container { max-width: 1000px; margin: 0 auto 4rem auto; padding: 0 5%; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
         
-        .post-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: transform 0.3s ease; border: 1px solid #e2e8f0; display: flex; flex-direction: column; }
-        .post-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .post-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
-        .category-tag { color: var(--accent-color); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
-        .post-title { font-size: 1.4rem; color: var(--text-heading); margin: 0.75rem 0; line-height: 1.3; font-weight: 800; }
-        .post-excerpt { color: #64748b; margin-bottom: 1.5rem; flex-grow: 1; }
-        .read-more { display: inline-block; padding: 0.5rem 1.5rem; background: var(--text-heading); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background 0.2s; align-self: flex-start; }
-        .read-more:hover { background: var(--accent-color); }
+        body { font-family: 'Lato', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.8; font-size: 1.1rem; }
+        h1, h2, h3, h4, .logo { font-family: 'Montserrat', sans-serif; letter-spacing: -0.5px; }
+        
+        header { background-color: var(--card-bg); padding: 1.5rem 5%; box-shadow: 0 1px 3px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-heading); text-decoration: none; }
+        .logo span { color: var(--accent-color); }
+        
+        nav#nav-links a { color: var(--text-main); text-decoration: none; margin-left: 1.5rem; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
+        nav#nav-links a:hover { color: var(--accent-color); }
+        
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
+        .menu-toggle .bar { height: 3px; width: 25px; background-color: var(--text-heading); margin: 4px 0; transition: 0.3s; border-radius: 2px; }
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            nav#nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--card-bg); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); padding: 1rem 0; text-align: center; }
+            nav#nav-links.active { display: flex; } 
+            nav#nav-links a { margin: 1rem 0; margin-left: 0; display: block; font-size: 1.1rem; }
+        }
+        
+        .category-header { max-width: 800px; margin: 4rem auto 2rem auto; padding: 0 5%; text-align: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 2rem; }
+        .category-header h1 { font-size: 2.5rem; color: var(--text-heading); font-weight: 900; }
+        .category-header p { color: #64748b; margin-top: 0.5rem; }
+
+        .article-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 800px; margin: 0 auto 4rem auto; padding: 0 5%; }
+        .article-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; display: flex; flex-direction: column; transition: transform 0.3s; text-decoration: none; }
+        .article-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .article-card img { width: 100%; height: 300px; object-fit: cover; }
+        .article-card-content { padding: 2rem; }
+        .article-card-tag { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 800; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; display: block; }
+        .article-card h2 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-heading); }
+        .article-card p { font-size: 1rem; color: var(--text-main); margin-bottom: 1.5rem; }
+        .read-more { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--text-heading); text-decoration: none; border-bottom: 2px solid var(--accent-color); padding-bottom: 2px; text-transform: uppercase; font-size: 0.85rem; }
 
         footer { background: var(--text-heading); color: #cbd5e1; text-align: center; padding: 3rem 5%; margin-top: 4rem; }
-        footer a { color: white; text-decoration: none; margin: 0 1rem; }
     </style>
 </head>
 <body>
 
     <header>
         <a href="index.html" class="logo">Gear<span>Insights</span></a>
-        <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav id="nav-links">
             <a href="index.html">Home</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="guides.html">Guides</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="photography.html">Photography</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
     <div class="category-header">
         <h1>Hiking Boots & Footwear</h1>
-        <p>In-depth reviews, comparisons, and trail-tested insights to keep your feet comfortable on the most rugged terrain.</p>
+        <p>Uncompromising field tests and maintenance guides for backcountry footwear.</p>
     </div>
 
-    <div class="category-container">
-        <article class="post-card">
-            <div class="post-content">
-                <span class="category-tag">Footwear Review</span>
-                <h2 class="post-title">Battle of the Boots: Lowa vs. Garmont for Long-Distance Hiking</h2>
-                <p class="post-excerpt">We put the latest models from Lowa and Garmont to the ultimate trail test to compare ankle support, Vibram traction, and long-term durability...</p>
-                <a href="lowa-vs-garmont.html" class="read-more">Read Full Review</a>
+    <div class="article-grid">
+        <a href="lowa-vs-garmont.html" class="article-card">
+            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=800&q=80" alt="Lowa vs Garmont Boots">
+            <div class="article-card-content">
+                <span class="article-card-tag">Gear Review</span>
+                <h2>Lowa vs. Garmont: The Ultimate 50-Mile Boot Battle</h2>
+                <p>Which boot survives the rugged Cascades? Deep dive into traction, support, and durability after a grueling field test.</p>
+                <span class="read-more">Read Full Review</span>
             </div>
-        </article>
+        </a>
+
+        <a href="guide-boot-care.html" class="article-card">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Boot Maintenance">
+            <div class="article-card-content">
+                <span class="article-card-tag">Maintenance Guide</span>
+                <h2>How to Clean & Waterproof Your Hiking Boots</h2>
+                <p>Double the life of your Gore-Tex investment. A step-by-step ritual to properly clean and reapply DWR to your technical boots.</p>
+                <span class="read-more">Learn How</span>
+            </div>
+        </a>
     </div>
 
     <footer>
         <p>&copy; 2026 GearInsights by Xander Hayes. All rights reserved.</p>
-        <div style="margin-top: 1rem;">
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="contact.html">Contact Us</a>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Contact: <a href="mailto:xiaohonglaila@gmail.com" style="color: white; text-decoration: none;">xiaohonglaila@gmail.com</a></p>
+        <div style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.7;">
+            <a href="about.html" style="color: white; text-decoration: none; margin: 0 0.8rem;">About</a>
+            <a href="terms-of-service.html" style="color: white; text-decoration: none; margin: 0 0.8rem;">Terms of Service</a>
+            <a href="privacy-policy.html" style="color: white; text-decoration: none; margin: 0 0.8rem;">Privacy Policy</a>
         </div>
     </footer>
 
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        if(mobileMenu) {
+            mobileMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>

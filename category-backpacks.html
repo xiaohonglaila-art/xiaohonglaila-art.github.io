@@ -3,73 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category: Technical Backpacks | The Explorer's Gear</title>
+    <title>Gregory Backpacks Review: Is the Premium Suspension Worth the Price? | GearInsights</title>
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2778302064532686" crossorigin="anonymous"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
     <style>
         :root { --bg-color: #f8fafc; --text-main: #334155; --text-heading: #0f172a; --accent-color: #0284c7; --card-bg: #ffffff; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.7; }
-        header { background-color: var(--card-bg); padding: 1.5rem 5%; box-shadow: 0 1px 3px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-heading); text-decoration: none; letter-spacing: -0.5px; }
-        .logo span { color: var(--accent-color); }
-        nav a { color: var(--text-main); text-decoration: none; margin-left: 2rem; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
-        nav a:hover { color: var(--accent-color); }
-
-        .category-header { background: var(--text-heading); color: white; text-align: center; padding: 4rem 1rem; margin-bottom: 3rem; }
-        .category-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; font-weight: 800; }
-        .category-header p { font-size: 1.1rem; color: #cbd5e1; max-width: 600px; margin: 0 auto; }
-
-        .category-container { max-width: 1000px; margin: 0 auto 4rem auto; padding: 0 5%; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
         
-        .post-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: transform 0.3s ease; border: 1px solid #e2e8f0; display: flex; flex-direction: column; }
-        .post-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .post-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
-        .category-tag { color: var(--accent-color); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
-        .post-title { font-size: 1.4rem; color: var(--text-heading); margin: 0.75rem 0; line-height: 1.3; font-weight: 800; }
-        .post-excerpt { color: #64748b; margin-bottom: 1.5rem; flex-grow: 1; }
-        .read-more { display: inline-block; padding: 0.5rem 1.5rem; background: var(--text-heading); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background 0.2s; align-self: flex-start; }
-        .read-more:hover { background: var(--accent-color); }
+        body { font-family: 'Lato', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.8; font-size: 1.1rem; }
+        h1, h2, h3, h4, .logo { font-family: 'Montserrat', sans-serif; letter-spacing: -0.5px; }
+        
+        header { background-color: var(--card-bg); padding: 1.5rem 5%; box-shadow: 0 1px 3px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-heading); text-decoration: none; }
+        .logo span { color: var(--accent-color); }
+        
+        nav#nav-links a { color: var(--text-main); text-decoration: none; margin-left: 1.5rem; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; font-family: 'Montserrat', sans-serif; }
+        nav#nav-links a:hover { color: var(--accent-color); }
+        
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
+        .menu-toggle .bar { height: 3px; width: 25px; background-color: var(--text-heading); margin: 4px 0; transition: 0.3s; border-radius: 2px; }
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            nav#nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--card-bg); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); padding: 1rem 0; text-align: center; }
+            nav#nav-links.active { display: flex; } 
+            nav#nav-links a { margin: 1rem 0; margin-left: 0; display: block; font-size: 1.1rem; }
+        }
+        
+        .article-container { max-width: 800px; margin: 4rem auto; padding: 0 5%; background: var(--card-bg); padding-bottom: 4rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .article-header { text-align: center; padding: 4rem 0 2rem 0; border-bottom: 1px solid #e2e8f0; margin-bottom: 3rem; }
+        .article-header h1 { font-size: 2.5rem; color: var(--text-heading); font-weight: 900; line-height: 1.2; }
+        .article-content h2 { font-size: 1.8rem; color: var(--text-heading); margin: 3rem 0 1rem 0; font-weight: 800; }
+        .article-content p { margin-bottom: 1.5rem; }
+        .tip-box { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; color: #92400e; }
+        
+        .author-box { display: flex; align-items: center; background-color: #f8fafc; padding: 2rem; border-radius: 8px; margin-top: 4rem; border-left: 4px solid var(--accent-color); border: 1px solid #e2e8f0; }
+        .author-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 1.5rem; }
+        .author-info h4 { font-family: 'Montserrat', sans-serif; color: var(--text-heading); margin-bottom: 0.5rem; font-size: 1.2rem; font-weight: 800; }
+        .author-info p { font-size: 0.95rem; margin-bottom: 0; color: var(--text-main); line-height: 1.6; }
+        @media (max-width: 768px) {
+            .author-box { flex-direction: column; text-align: center; }
+            .author-avatar { margin-right: 0; margin-bottom: 1rem; }
+        }
 
         footer { background: var(--text-heading); color: #cbd5e1; text-align: center; padding: 3rem 5%; margin-top: 4rem; }
-        footer a { color: white; text-decoration: none; margin: 0 1rem; }
     </style>
 </head>
 <body>
 
     <header>
         <a href="index.html" class="logo">Gear<span>Insights</span></a>
-        <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav id="nav-links">
             <a href="index.html">Home</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="guides.html">Guides</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="photography.html">Photography</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
-    <div class="category-header">
-        <h1>Technical Backpacks</h1>
-        <p>Deep dives into suspension systems, load haulers, and ultralight gear designed for multi-day expeditions.</p>
-    </div>
+    <div class="article-container">
+        <div class="article-header">
+            <p style="text-transform: uppercase; letter-spacing: 1px; color: #64748b; font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 0.85rem;">Gear Review</p>
+            <h1>Gregory Backpacks Review: Is the Premium Suspension Worth the Price?</h1>
+        </div>
 
-    <div class="category-container">
-        <article class="post-card">
-            <div class="post-content">
-                <span class="category-tag">Gear Teardown</span>
-                <h2 class="post-title">Gregory Backpacks: Are They Worth the Premium Price Tag?</h2>
-                <p class="post-excerpt">Known for their incredibly comfortable suspension systems, Gregory packs dominate the premium market. We take a deep dive into their load-bearing technology...</p>
-                <a href="gregory-backpacks.html" class="read-more">Read Full Review</a>
+        <div class="article-content">
+            <p>In the world of load-hauling, the Gregory Baltoro series has maintained a cult-like following for over a decade. While ultralight hikers might scoff at the base weight of these packs, anyone carrying camera gear, winter equipment, or extra water knows that a good suspension system is far more important than saving a few ounces on fabric.</p>
+            
+            <p>I took the latest generation of the Gregory Baltoro out for a 7-day backcountry photography trip. With my total pack weight hovering around 45 pounds, I wanted to see if their Response A3 suspension system actually delivers on its promises.</p>
+
+            <h2>The Response A3 Suspension System</h2>
+            <p>The core of Gregory's premium pricing lies in the Response A3 (Auto Angle Adjust) system. Unlike rigid frames that force your body to adapt to the pack, the shoulder harnesses and hip belts on the Baltoro pivot independently. When you step up onto a high boulder, the hip belt articulates with your movement. The result is a dramatic reduction in the side-to-side sway that typically exhausts your core muscles over a long day.</p>
+
+            <div class="tip-box">
+                <strong>Field Note:</strong> The pivoting hip belt makes a massive difference on uneven terrain. I found myself having to readjust my straps far less frequently than I do with static frame packs.
             </div>
-        </article>
+
+            <h2>Organization and Access</h2>
+            <p>Gregory understands that living out of a backpack requires intelligent organization. The U-zip main compartment access means you can lay the pack flat and open it like a duffel bag. This is a game-changer for photographers who need to access lenses buried in the middle of their load without pulling out their sleeping bag and tent first.</p>
+
+            <h2>The Final Verdict</h2>
+            <p>Is the Gregory Baltoro worth the premium price tag? If your total pack weight rarely exceeds 25 pounds, this pack is overkill. However, if you are a photographer, a winter camper, or a guide who regularly carries 40 to 60 pounds, the Baltoro is an investment in your physical longevity. The suspension system effectively tricks your body into thinking you are carrying less weight than you actually are.</p>
+
+            <div class="author-box">
+                <img src="images/xander-avatar.jpg" alt="Xander Hayes" class="author-avatar">
+                <div class="author-info">
+                    <h4>About Xander Hayes</h4>
+                    <p>Xander is an outdoor gear tester and backcountry photographer. With thousands of miles logged in the wilderness, he breaks down technical gear with raw field data. <a href="about.html" style="color: var(--accent-color); font-weight: 800; text-decoration: none;">Read full bio</a>.</p>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2026 GearInsights by Xander Hayes. All rights reserved.</p>
-        <div style="margin-top: 1rem;">
-            <a href="privacy-policy.html">Privacy Policy</a>
-            <a href="contact.html">Contact Us</a>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Contact: <a href="mailto:xiaohonglaila@gmail.com" style="color: white; text-decoration: none;">xiaohonglaila@gmail.com</a></p>
+        <div style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.7;">
+            <a href="about.html" style="color: white; text-decoration: none; margin: 0 0.8rem;">About</a>
+            <a href="terms-of-service.html" style="color: white; text-decoration: none; margin: 0 0.8rem;">Terms of Service</a>
+            <a href="privacy-policy.html" style="color: white; text-decoration: none; margin: 0 0.8rem;">Privacy Policy</a>
         </div>
     </footer>
 
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        if(mobileMenu) {
+            mobileMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>

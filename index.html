@@ -104,6 +104,36 @@
             /* 手机端菜单项排版优化 */
             nav#nav-links a { margin: 1rem 0; margin-left: 0; display: block; font-size: 1.1rem; }
         }
+        /* ---------------- Hero Slider 高级样式 ---------------- */
+        .hero-slider { position: relative; width: 100%; height: 85vh; min-height: 600px; overflow: hidden; background-color: var(--text-heading); }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .slide::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)); z-index: 1; }
+        .slide.active { opacity: 1; z-index: 2; }
+        
+        .slide-content { position: relative; z-index: 3; color: white; max-width: 900px; padding: 0 20px; transform: translateY(30px); transition: all 0.8s ease; opacity: 0; }
+        .slide.active .slide-content { transform: translateY(0); opacity: 1; transition-delay: 0.3s; }
+        
+        .category-tag { display: inline-block; padding: 6px 16px; background-color: var(--accent-color); color: white; font-size: 0.85rem; font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; border-radius: 4px; }
+        .slide-content h2 { font-size: 4.5rem; color: #ffffff; margin-bottom: 2rem; line-height: 1.1; text-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+        
+        .cta-button { display: inline-block; padding: 15px 35px; background-color: white; color: var(--text-heading); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border-radius: 4px; transition: all 0.3s ease; }
+        .cta-button:hover { background-color: var(--accent-color); color: white; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 4; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 20px 25px; cursor: pointer; font-size: 1.5rem; transition: all 0.3s; border-radius: 50%; }
+        .slider-btn:hover { background: white; color: var(--text-heading); }
+        .slider-btn.prev { left: 3%; }
+        .slider-btn.next { right: 3%; }
+        
+        .slider-dots { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 4; display: flex; gap: 12px; }
+        .dot { width: 40px; height: 4px; background: rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s; }
+        .dot.active { background: white; width: 60px; }
+
+        @media (max-width: 768px) {
+            .hero-slider { height: 70vh; min-height: 500px; }
+            .slide-content h2 { font-size: 2.5rem; }
+            .slider-btn { display: none; } /* 手机端隐藏左右按钮，用户可以直接点文章 */
+        }
+        /* -------------------------------------------------------- */
     </style>
 </head>
 <body>
@@ -127,9 +157,39 @@
         </nav>
     </header>
 
-    <div class="hero">
-        <h1>In-Depth Gear Analysis</h1>
-        <p>Unbiased reviews, technical teardowns, and expert buying guides for the serious adventurer.</p>
+    <div class="hero-slider">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1600&q=80');">
+            <div class="slide-content">
+                <span class="category-tag">Field Tested</span>
+                <h2>Lowa vs. Garmont:<br>The 50-Mile Battle</h2>
+                <a href="lowa-vs-garmont.html" class="cta-button">Read the Verdict</a>
+            </div>
+        </div>
+        
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1600&q=80');">
+            <div class="slide-content">
+                <span class="category-tag">Photography</span>
+                <h2>Mirrorless in the<br>Backcountry</h2>
+                <a href="best-backcountry-cameras.html" class="cta-button">See Top Picks</a>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80');">
+            <div class="slide-content">
+                <span class="category-tag">Gear Care</span>
+                <h2>Double Your Boot's<br>Lifespan</h2>
+                <a href="guide-boot-care.html" class="cta-button">Learn How</a>
+            </div>
+        </div>
+        
+        <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+        
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
     </div>
 
     <div class="main-container">
@@ -219,5 +279,46 @@
         });
     </script>
     <script src="main.js"></script>
+    <script>
+        // Hero Slider 自动播放与控制逻辑
+        let slideIndex = 1;
+        let slideInterval;
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].className = slides[i].className.replace(" active", "");
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].className += " active";
+            dots[slideIndex-1].className += " active";
+        }
+
+        function moveSlide(n) {
+            showSlides(slideIndex += n);
+            resetTimer();
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+            resetTimer();
+        }
+
+        function resetTimer() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(function() { moveSlide(1) }, 6000); // 6秒自动切换
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if(document.getElementsByClassName("slide").length > 0) {
+                showSlides(slideIndex);
+                // 启动自动播放
+                slideInterval = setInterval(function() { moveSlide(1) }, 6000);
+            }
+        });
+    </script>
 </body>
 </html>
